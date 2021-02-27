@@ -1,12 +1,13 @@
-import { useChallenges } from '../contexts/ChallengesContext';
+import { FC } from 'react';
+import { useChallenges } from '../../contexts/ChallengesContext';
 
-import styles from '../styles/components/Profile.module.css';
+import { ProfileContainer } from './styles';
 
-export function Profile() {
+const Profile: FC = () => {
   const { level } = useChallenges();
 
   return (
-    <div className={styles.profileContainer}>
+    <ProfileContainer>
       <img src="https://github.com/jonathanpauluze.png" alt="Jonathan Pauluze" />
       <div>
         <strong>Jonathan Pauluze</strong>
@@ -15,6 +16,8 @@ export function Profile() {
           Level {level}
         </p>
       </div>
-    </div>
+    </ProfileContainer>
   );
 }
+
+export default Profile;
