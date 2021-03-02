@@ -8,7 +8,7 @@ const dark = {
     grayLine: '#DCDDE0',
     text: '#fff',
     textHighlight: '#B3B9FF',
-    title: '#336ade',
+    title: '#007bff',
     red: '#E83F5B',
     green: '#4CD62B',
     blue: '#5965E0',
