@@ -1,9 +1,10 @@
-import { TimesIcon } from './TimesIcon';
-import { useCountdown } from '../contexts/CountdownContext';
+import { FC } from 'react';
+import { TimesIcon } from '../TimesIcon/TimesIcon';
+import { useCountdown } from '../../contexts/CountdownContext';
 
-import styles from '../styles/components/Countdown.module.css';
+import { CountdownContainer, CountdownButton } from './styles';
 
-export function Countdown() {
+const Countdown: FC = () => {
   const {
     minutes,
     seconds,
@@ -18,7 +19,7 @@ export function Countdown() {
 
   return (
     <>
-      <div className={styles.countdownContainer}>
+      <CountdownContainer>
         <div>
           <span>{minuteLeft}</span>
           <span>{minuteRight}</span>
@@ -28,39 +29,37 @@ export function Countdown() {
           <span>{secondLeft}</span>
           <span>{secondRight}</span>
         </div>
-      </div>
+      </CountdownContainer>
 
       { hasFinished ? (
-        <button
-          disabled
-          className={styles.countdownButton}
-        >
+        <CountdownButton disabled>
           Ciclo encerrado
           <img src="icons/check.svg" alt="Concluído" />
-        </button>
+        </CountdownButton>
       ) : (
         <>
           { isActive ? (
-            <button
+            <CountdownButton
               type="button"
-              className={`${styles.countdownButton} ${styles.countdownButtonActive}`}
+              data-active
               onClick={resetCountdown}
             >
               Abandonar ciclo
               <TimesIcon />
-            </button>
+            </CountdownButton>
           ) : (
-            <button
+            <CountdownButton
               type="button"
-              className={styles.countdownButton}
               onClick={startCountdown}
             >
               Iniciar um ciclo
               <img src="icons/play.svg" alt="Iniciar" />
-            </button>
+            </CountdownButton>
           ) }
         </>
       )}
     </>
   );
 }
+
+export default Countdown;

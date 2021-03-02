@@ -1,31 +1,33 @@
+import { FC } from 'react';
 import Head from 'next/head';
 import { GetServerSideProps } from 'next';
 
+import { ChallengesProvider } from '../contexts/ChallengesContext';
 import { CountdownProvider } from '../contexts/CountdownContext';
 
-import { ExperienceBar } from '../components/ExperienceBar'
-import { Profile } from '../components/Profile'
-import { CompletedChallenges } from '../components/CompletedChallenges';
-import { Countdown } from '../components/Countdown';
-import { ChallengeBox } from '../components/ChallengeBox';
+import ExperienceBar from '../components/ExperienceBar/ExperienceBar'
+import Profile from '../components/Profile/Profile'
+import CompletedChallenges from '../components/CompletedChallenges/CompletedChallenges';
+import Countdown from '../components/Countdown/Countdown';
+import ChallengeBox from '../components/ChallengeBox/ChallengeBox';
 
-import styles from '../styles/pages/Home.module.css';
-import { ChallengesProvider } from '../contexts/ChallengesContext';
+import { Container } from './styles';
 
 interface HomeProps {
   level: number;
   currentExperience: number;
   completedChallenges: number;
+  toggleTheme: () => void;
 }
 
-export default function Home(props: HomeProps) {
+const Home: FC<HomeProps> = ({ level, currentExperience, completedChallenges, toggleTheme }) => {
   return (
     <ChallengesProvider
-      level={props.level}
-      currentExperience={props.currentExperience}
-      completedChallenges={props.completedChallenges}
+      level={level}
+      currentExperience={currentExperience}
+      completedChallenges={completedChallenges}
     >
-      <div className={styles.container}>
+      <Container>
         <Head>
           <title>Início | Move.it</title>
         </Head>
@@ -35,7 +37,7 @@ export default function Home(props: HomeProps) {
         <CountdownProvider>
           <section>
             <div >
-              <Profile />
+              <Profile toggleTheme={toggleTheme} />
               <CompletedChallenges />
               <Countdown />
             </div>
@@ -45,7 +47,7 @@ export default function Home(props: HomeProps) {
             </div>
           </section>
         </CountdownProvider>
-      </div>
+      </Container>
     </ChallengesProvider>
   )
 }
@@ -61,3 +63,5 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
     }
   }
 }
+
+export default Home;
