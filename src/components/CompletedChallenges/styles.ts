@@ -6,7 +6,7 @@ export const CompletedChallengesContainer = styled.div`
   align-items: center;
   margin: 3.5rem 0;
   padding-bottom: 1rem;
-  border-bottom: 1px solid #D7D8DA;
+  border-bottom: 1px solid ${({ theme }) => theme.colors.grayLine};
   font-weight: 500;
 
   span {

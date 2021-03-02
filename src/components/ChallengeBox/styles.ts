@@ -9,7 +9,7 @@ export const ChallengeBoxContainer = styled.div`
   padding: 1.5rem 2rem;
   border-radius: 5px;
   text-align: center;
-  background-color: var(--white);
+  background-color: ${({ theme }) => theme.colors.main};
   box-shadow: 0 0 60px rgba(0, 0, 0, 0.05);
 `;
 
@@ -45,8 +45,8 @@ export const ChallengeActive = styled.div`
 
   header {
     padding: 0 2rem 1.5rem;
-    border-bottom: 1px solid var(--gray-line);
-    color: var(--blue);
+    border-bottom: 1px solid ${({ theme }) => theme.colors.grayLine};
+    color: ${({ theme }) => theme.colors.blue};
     font-size: 1.25rem;
     font-weight: 600;
   }
@@ -62,7 +62,7 @@ export const ChallengeActive = styled.div`
       margin: 1.5rem 0 1rem;
       font-size: 2rem;
       font-weight: 600;
-      color: var(--title);
+      color: ${({ theme }) => theme.colors.title};
     }
 
     p {
@@ -84,15 +84,15 @@ export const ChallengeActive = styled.div`
       border-radius: 5px;
       font-size: 1rem;
       font-weight: 600;
-      color: var(--white);
+      color: ${({ theme }) => theme.colors.main};
       transition: .1s ease;
 
       &[data-status="failed"] {
-        background-color: var(--red);
+        background-color: ${({ theme }) => theme.colors.red};;
       }
 
       &[data-status="succeeded"] {
-        background-color: var(--green);
+        background-color: ${({ theme }) => theme.colors.green};
       }
 
       &:hover {

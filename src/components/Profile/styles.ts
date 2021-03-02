@@ -10,21 +10,26 @@ export const ProfileContainer = styled.div`
     border-radius: 50%;
   }
 
-  div {
+  > div {
     margin-left: 1.5rem;
 
     strong {
       font-size: 1.5rem;
       font-weight: 600;
-      color: var(--title);
+      color: ${({ theme }) => theme.colors.title};
     }
 
-    p {
+    > div {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       margin-top: 0.5rem;
       font-size: 1rem;
 
-      img {
-        margin-right: 0.5rem;
+      > div {
+        img {
+          margin-right: 0.5rem;
+        }
       }
     }
   }

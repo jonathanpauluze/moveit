@@ -34,8 +34,8 @@ export default createGlobalStyle`
   }
 
   body {
-    background-color: var(--background);
-    color: var(--text);
+    background-color: ${({ theme }) => theme.colors.background};
+    color: ${({ theme }) => theme.colors.text};
   }
 
   body, input, textarea, button {

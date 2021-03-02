@@ -14,12 +14,12 @@ export const ExperienceBarContainer = styled.header`
     height: 4px;
     margin: 0 1.5rem;
     border-radius: 4px;
-    background-color: var(--gray-line);
+    background-color: ${({ theme }) => theme.colors.grayLine};
 
     > div {
       height: 4px;
       border-radius: 4px;
-      background-color: var(--green);
+      background-color: ${({ theme }) => theme.colors.green};
     }
 
     span {
