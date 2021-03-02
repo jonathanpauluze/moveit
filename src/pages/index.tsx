@@ -2,6 +2,7 @@ import { FC } from 'react';
 import Head from 'next/head';
 import { GetServerSideProps } from 'next';
 
+import { ChallengesProvider } from '../contexts/ChallengesContext';
 import { CountdownProvider } from '../contexts/CountdownContext';
 
 import ExperienceBar from '../components/ExperienceBar/ExperienceBar'
@@ -10,8 +11,7 @@ import CompletedChallenges from '../components/CompletedChallenges/CompletedChal
 import Countdown from '../components/Countdown/Countdown';
 import ChallengeBox from '../components/ChallengeBox/ChallengeBox';
 
-import styles from '../styles/pages/Home.module.css';
-import { ChallengesProvider } from '../contexts/ChallengesContext';
+import { Container } from './styles';
 
 interface HomeProps {
   level: number;
@@ -27,7 +27,7 @@ const Home: FC<HomeProps> = ({ level, currentExperience, completedChallenges, to
       currentExperience={currentExperience}
       completedChallenges={completedChallenges}
     >
-      <div className={styles.container}>
+      <Container>
         <Head>
           <title>Início | Move.it</title>
         </Head>
@@ -47,7 +47,7 @@ const Home: FC<HomeProps> = ({ level, currentExperience, completedChallenges, to
             </div>
           </section>
         </CountdownProvider>
-      </div>
+      </Container>
     </ChallengesProvider>
   )
 }
