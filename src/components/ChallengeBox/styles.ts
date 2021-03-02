@@ -84,7 +84,7 @@ export const ChallengeActive = styled.div`
       border-radius: 5px;
       font-size: 1rem;
       font-weight: 600;
-      color: ${({ theme }) => theme.colors.main};
+      color: ${({ theme }) => theme.colors.white};
       transition: .1s ease;
 
       &[data-status="failed"] {
