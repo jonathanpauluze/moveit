@@ -11,7 +11,7 @@ import CompletedChallenges from '../components/CompletedChallenges/CompletedChal
 import Countdown from '../components/Countdown/Countdown';
 import ChallengeBox from '../components/ChallengeBox/ChallengeBox';
 
-import { Container } from './styles';
+import { Container } from './../styles/pages/home';
 
 interface HomeProps {
   level: number;
